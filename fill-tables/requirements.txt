@@ -1,0 +1,7 @@
+Faker
+psycopg2-binary
+googletrans==4.0.0-rc1
+psycopg2-binary==2.9.3
+faker==13.3.0
+googletrans==4.0.0-rc1
+python-dotenv==0.19.2

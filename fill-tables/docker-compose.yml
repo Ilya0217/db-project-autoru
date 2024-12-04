@@ -1,0 +1,29 @@
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DB_HOST: db
+      DB_NAME: db_project_autoru
+      DB_USER: postgres
+      DB_PASSWORD: 123033
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    command: ["python", "fill-tables.py"]
+
+  db:
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_DB: db_project_autoru
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123033
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
